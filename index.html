@@ -20,6 +20,9 @@ details.card summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:
 .livepill:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
 .footer-note{text-align:center;color:var(--muted);font-size:12px;margin-top:26px}
 @media(max-width:650px){.newslinks{grid-template-columns:1fr}}
+
+.auto-news-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0;box-shadow:0 4px 14px rgba(14,31,53,.06)}
+.auto-news-card a{text-decoration:none;color:inherit}.auto-news-card .meta{font-size:11px;color:var(--muted);font-weight:700;margin-bottom:4px}.auto-news-card .title{font-size:15px;font-weight:900;line-height:1.42;color:var(--navy);margin-bottom:7px}.auto-news-card .why{font-size:13px;margin:5px 0}.auto-news-card .say{font-size:13px;background:#eef7f3;border-left:4px solid var(--green);border-radius:9px;padding:9px 10px;margin-top:8px}
 </style></head><body>
 <header><div class="top"><div class="brand">HJ 면접</div><nav class="nav"><a href="#today">오늘</a><a href="#news">최신뉴스</a><a href="#core">핵심질문</a><a href="#exp">경험4개</a><a href="#terms">조선용어</a><a href="#company">HJ</a><a href="#plan">D-Day</a></nav></div></header>
 <main>
@@ -35,8 +38,12 @@ details.card summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:
 <div class="tip"><b>답변 공식:</b> 결론 1문장 → 실제 사례 1개 → 수치/판단근거 → HJ 연결. 처음부터 다 말하지 말고 꼬리질문이 오면 확장.</div></section>
 
 <section class="section" id="news">
-  <h2>최신 뉴스 <span class="livepill">실시간 링크</span></h2>
-  <p class="desc"><span id="todayDate"></span> 기준으로 바로 검색할 수 있어. 아래 검색 버튼은 열 때마다 최신순 결과를 보여줘.</p>
+  <h2>오늘의 자동 업데이트 뉴스 <span class="livepill">매일 자동</span></h2>
+  <p class="desc"><span id="autoUpdated">업데이트 확인 중...</span></p>
+  <div id="autoNews"><div class="card"><p>뉴스를 불러오는 중...</p></div></div>
+
+  <h3 style="font-size:16px;color:var(--navy);margin:16px 0 6px">실시간 뉴스 링크</h3>
+  <p class="desc"><span id="todayDate"></span> 기준으로 바로 검색할 수 있어. 아래 버튼은 열 때마다 최신순 결과를 보여줘.</p>
 
   <div class="newslinks">
     <a class="newsbtn" href="https://www.hjsc.co.kr/pcenter/press_release.asp" target="_blank" rel="noopener"><span>HJ 공식 보도자료</span><span>↗</span></a>
@@ -109,4 +116,5 @@ const now=new Date();
 const y=now.getFullYear(),m=String(now.getMonth()+1).padStart(2,'0'),d=String(now.getDate()).padStart(2,'0');
 const td=document.getElementById('todayDate'); if(td) td.textContent=`${y}.${m}.${d}`;
 document.querySelectorAll('input[data-key]').forEach(x=>{x.checked=localStorage.getItem('hj_'+x.dataset.key)==='1';x.addEventListener('change',updateProgress)});updateProgress();
+\nasync function loadAutoNews(){\n  const box=document.getElementById('autoNews'); const updated=document.getElementById('autoUpdated'); if(!box)return;\n  try{\n    const res=await fetch('news.json?ts='+Date.now(),{cache:'no-store'}); if(!res.ok) throw new Error('news.json');\n    const data=await res.json(); updated.textContent='마지막 업데이트: '+(data.last_updated||'확인 불가');\n    if(!data.items||!data.items.length){box.innerHTML='<div class="card"><p>오늘 표시할 뉴스가 아직 없어. Actions 첫 실행 후 자동으로 채워져.</p></div>';return;}\n    box.innerHTML=data.items.map((x,i)=>`<div class="auto-news-card"><a href="${x.link}" target="_blank" rel="noopener"><div class="meta">${x.published||''} · ${x.source||'뉴스'}</div><div class="title">${i+1}. ${x.title}</div></a><div class="why"><b>왜 볼까?</b> ${x.why||''}</div><div class="say"><b>면접 한 줄</b><br>${x.interview_line||''}</div></div>`).join('');\n  }catch(e){updated.textContent='자동뉴스를 불러오지 못했어.';box.innerHTML='<div class="card"><p>아래 실시간 뉴스 링크는 정상 사용 가능해. GitHub Actions 첫 실행 뒤 자동뉴스가 표시돼.</p></div>';}\n}\nloadAutoNews();\n
 </script></body></html>
