@@ -119,8 +119,13 @@ document.querySelectorAll('input[data-key]').forEach(x=>{x.checked=localStorage.
 
 async function loadAutoNews(){
   const box=document.getElementById('autoNews'); const updated=document.getElementById('autoUpdated'); if(!box)return;
-  try{\n    const res=await fetch('news.json?ts='+Date.now(),{cache:'no-store'}); if(!res.ok) throw new Error('news.json');
+  try{
+    const res=await fetch('news.json?ts='+Date.now(),{cache:'no-store'}); if(!res.ok) throw new Error('news.json');
     const data=await res.json(); updated.textContent='마지막 업데이트: '+(data.last_updated||'확인 불가');
-    if(!data.items||!data.items.length){box.innerHTML='<div class="card"><p>오늘 표시할 뉴스가 아직 없어. Actions 첫 실행 후 자동으로 채워져.</p></div>';return;}\n    box.innerHTML=data.items.map((x,i)=>`<div class="auto-news-card"><a href="${x.link}" target="_blank" rel="noopener"><div class="meta">${x.published||''} · ${x.source||'뉴스'}</div><div class="title">${i+1}. ${x.title}</div></a><div class="why"><b>왜 볼까?</b> ${x.why||''}</div><div class="say"><b>면접 한 줄</b><br>${x.interview_line||''}</div></div>`).join('');
-  }catch(e){updated.textContent='자동뉴스를 불러오지 못했어.';box.innerHTML='<div class="card"><p>아래 실시간 뉴스 링크는 정상 사용 가능해. GitHub Actions 첫 실행 뒤 자동뉴스가 표시돼.</p></div>';}\n}\nloadAutoNews();\n
+    if(!data.items||!data.items.length){box.innerHTML='<div class="card"><p>오늘 표시할 뉴스가 아직 없어. Actions 첫 실행 후 자동으로 채워져.</p></div>';return;}
+    box.innerHTML=data.items.map((x,i)=>`<div class="auto-news-card"><a href="${x.link}" target="_blank" rel="noopener"><div class="meta">${x.published||''} · ${x.source||'뉴스'}</div><div class="title">${i+1}. ${x.title}</div></a><div class="why"><b>왜 볼까?</b> ${x.why||''}</div><div class="say"><b>면접 한 줄</b><br>${x.interview_line||''}</div></div>`).join('');
+  }catch(e){updated.textContent='자동뉴스를 불러오지 못했어.';box.innerHTML='<div class="card"><p>아래 실시간 뉴스 링크는 정상 사용 가능해. GitHub Actions 첫 실행 뒤 자동뉴스가 표시돼.</p></div>';}
+}
+loadAutoNews();
+
 </script></body></html>
