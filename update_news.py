@@ -42,13 +42,47 @@ POSITIVE = {
     "스마트": 2,
 }
 NEGATIVE = {
-    "주가": -5,
-    "특징주": -7,
-    "급등": -5,
-    "급락": -5,
-    "목표주가": -4,
-    "증권": -2,
+    "주가": -8,
+    "특징주": -10,
+    "급등": -8,
+    "급락": -8,
+    "목표주가": -6,
+    "증권": -5,
+    "공시": -6,
 }
+
+# 면접과 직접 관련 없는 HJ 건설/홍보/주가성 뉴스는 제외
+EXCLUDE_WORDS = {
+    "건설", "고속도로", "아파트", "재개발", "재건축", "부동산",
+    "챔피언십", "기부", "기부금", "골프", "사회공헌",
+    "개장 전", "주가", "특징주", "급등", "급락", "목표주가", "공시",
+}
+
+# 조선경영기획 면접에 직접 연결되는 키워드
+RELEVANT_WORDS = {
+    "HJ중공업", "조선", "영도조선소", "선박", "컨테이너선", "상선",
+    "특수선", "함정", "방산", "MRO", "MSRA", "미 해군",
+    "수주", "수주잔고", "매출", "영업이익", "실적", "수익성",
+    "원가", "공정", "후판", "친환경", "자율운항", "스마트", "AI",
+}
+
+def is_relevant(title: str) -> bool:
+    lower = title.lower()
+    if any(word.lower() in lower for word in EXCLUDE_WORDS):
+        return False
+
+    # HJ 기사도 조선/실적/방산 등 면접 관련 주제가 함께 있어야 함
+    if "hj중공업" in lower:
+        hj_topics = RELEVANT_WORDS - {"HJ중공업"}
+        return any(word.lower() in lower for word in hj_topics)
+
+    # 일반 업계 기사는 조선 관련성이 명확해야 함
+    ship_core = {
+        "조선", "선박", "컨테이너선", "특수선", "함정", "방산",
+        "MRO", "MSRA", "미 해군", "영도조선소", "후판", "자율운항",
+    }
+    return any(word.lower() in lower for word in ship_core)
+
 
 
 def fetch_rss(query: str):
@@ -94,7 +128,7 @@ def category(title: str) -> str:
     t = title.lower()
     if "mro" in t or "msra" in t or "미 해군" in t or "함정" in t:
         return "MRO·방산"
-    if "수주" in t or "컨테이너선" in t or "선박" in t:
+    if "컨테이너선" in t or "선박" in t or "조선" in t or "영도조선소" in t:
         return "수주·선박"
     if "영업이익" in t or "매출" in t or "실적" in t or "수익성" in t:
         return "실적·수익성"
@@ -153,6 +187,8 @@ def main():
                     continue
                 title = clean_title(item["title"])
                 if not title or not item["link"]:
+                    continue
+                if not is_relevant(title):
                     continue
                 key = re.sub(r"\W+", "", title.lower())
                 candidate = {
