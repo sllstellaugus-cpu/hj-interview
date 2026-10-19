@@ -1,0 +1,19 @@
+{
+  "id": "/hj-interview/essay-qa.html",
+  "name": "HJ중공업 자소서 면접 노트",
+  "short_name": "HJ 면접노트",
+  "description": "자소서 31개 예상 질문과 답변 연습 노트",
+  "start_url": "./essay-qa.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f7",
+  "theme_color": "#087c76",
+  "icons": [
+    {
+      "src": "./essay-qa-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
