@@ -1,46 +1,19 @@
 {
-  "last_updated": "2026.11.20 12:05 KST",
+  "last_updated": "2026.11.21 12:10 KST",
   "items": [
     {
-      "title": "HJ중공업 3분기 누적 연결매출 2조 돌파 영업이익 1554억 - 머니투데이",
-      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE50bGsza09LbGpXRUhJWVVRUkZ0ZElNTUFlRzhmd256WjFVb3p4SGhsMjR2NUpmNVNQR01QamR1NEJ5XzFIek1XMW9iTzliUkF1dWpKcnFDQTFUanB1cFdOXzlLUkdhd05MQ1HSAW9BVV95cUxOaFh4ZDRuUnNtbG9aX0dBZnh3Wmk3YkMwOU5TT0pDSnI5dUlmaERoYUN6R2owc3lvajFnMGV6RGg0dDRHWUxzTjZ1Q0RjSWo5b096clJtRV9peW85em52Vk1rZUV4cDBLcXFsSmI3dEU?oc=5",
-      "source": "머니투데이",
-      "published": "2026.11.13",
-      "category": "실적·수익성",
-      "why": "영업이익률 개선 원인과 회사의 현재 경영상태를 설명할 때 바로 쓸 수 있어.",
-      "interview_line": "최근 실적을 보면서 단순 매출 증가보다 사업별 원가와 수익성 개선이 중요하다고 봤습니다. 전략기획에서는 계획 대비 실적 차이와 원인을 빠르게 파악하는 것이 필요하다고 생각합니다."
+      "title": "미 해군 함정 MRO 잇단 수주…HD현대중공업, 4번째 계약 확보",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBrZnl5dzlmU25JaUdfVDFTc2xIV1pTOTZPUC1BMlBLSlMwZUZ3SVUtb1pUaFJRN0RQYjlfVnlEc3N4eDZCWkl1RFhDcFJjWjR1dHJFZFM2RFJDWGVRdHMwSi1mTWxlZ1RG?oc=5",
+      "source": "www.ebn.co.kr",
+      "published": "2026.11.20",
+      "category": "MRO·방산",
+      "why": "HJ의 신성장 사업과 방산·정비 역량 확장을 이해하는 데 직접 연결돼.",
+      "interview_line": "최근 MRO 관련 흐름을 보면서, 신규 매출원뿐 아니라 실제 수주 이후의 원가·공정·수익성 관리가 전략기획에서 중요하다고 생각했습니다."
     },
     {
-      "title": "HJ중공업, 올해 3분기 누적 영업이익 1554억 원… 전년 대비 8배 ‘껑충’",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE16Ym5MeWJJZVlsY2pBUHplLWlCZlJIMWtkTHFWRzcxZTZUU2lWakk0Qm8wNXpRUU16TUhuWXNUVFVnOFRKbk84Vl9qaU80R1Rjd2dDOEw1eGJwZkJyNHJkaE1FOGcyU1RkN01SQXRB?oc=5",
-      "source": "아시아투데이",
-      "published": "2026.11.17",
-      "category": "실적·수익성",
-      "why": "영업이익률 개선 원인과 회사의 현재 경영상태를 설명할 때 바로 쓸 수 있어.",
-      "interview_line": "최근 실적을 보면서 단순 매출 증가보다 사업별 원가와 수익성 개선이 중요하다고 봤습니다. 전략기획에서는 계획 대비 실적 차이와 원인을 빠르게 파악하는 것이 필요하다고 생각합니다."
-    },
-    {
-      "title": "고부가 선박 효과 본 HJ중공업, 3분기 누적 순이익 1306억원",
-      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1GMEFySTBBaTluamJJbDZJZU1xX1ItZXdGU21FNm5jWHJzbHIxRGNfNVZYZzBsZ3BtSWdseExzQ2NQdGVMVW1TNWZtdUVDdGJ3dThuOTdqVVZ0U1RuUUd1N01hOFg?oc=5",
-      "source": "서울경제TV",
-      "published": "2026.11.13",
-      "category": "수주·선박",
-      "why": "수주잔고, 향후 매출 가시성, 공정·납기·수익성으로 이어지는 핵심 뉴스야.",
-      "interview_line": "최근 수주 흐름을 관심 있게 보고 있습니다. 수주 규모 자체보다 향후 공정·원가·납기 관리로 계획한 수익성을 실제 이익으로 연결하는 것이 중요하다고 생각합니다."
-    },
-    {
-      "title": "HJ중공업 3분기 누적 영업익 1554억 원…조선 가동률 100% 돌파",
-      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9GOWlpdDJsT1lTLU1peHZUQlg2YUJickJqbG1HZVpra2VsZk5tVHRCdTNqRndiTFBSbE4xbmNXNnEzMVcxWl9RRVlIeHZCZEgzRVVsM0wwWWVTWWpabG1jZG10OWQwOUpEVWN4VEdQOUU2LXA4eUHSAWZBVV95cUxOUWpKQjNubkEwR2J2UmhQX0ctS0ZUSUtHTkRHTWVfM2FaSFlQZ00tQ1RmS3dnd2o1MWFsVHhnY3N4SHhIaVY0WXJuVVJ4cENDQ0RVNUthdl95QmtZRzFWaWc4elZPcnc?oc=5",
-      "source": "동아일보",
-      "published": "2026.11.13",
-      "category": "수주·선박",
-      "why": "수주잔고, 향후 매출 가시성, 공정·납기·수익성으로 이어지는 핵심 뉴스야.",
-      "interview_line": "최근 수주 흐름을 관심 있게 보고 있습니다. 수주 규모 자체보다 향후 공정·원가·납기 관리로 계획한 수익성을 실제 이익으로 연결하는 것이 중요하다고 생각합니다."
-    },
-    {
-      "title": "HD현대重, 美 해군 군수지원함 MRO 추가 수주...4번째 계약",
-      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9tQWFILUZFSTl2dlozLUpxR1EzQ19qQjB3N19mcjMzRGF0dllNc0hMWkh4ck1hU3B0SVljV0RxNXJuNE1EY3gzRElPQXJDS3NrSjk4NFJ5d25lUTRxMFlaOFVFVjB1NGVYREhhbElaYkhHZw?oc=5",
-      "source": "중앙이코노미뉴스",
+      "title": "HD현대중공업, 美 해군 군수지원함 MRO 4번째 수주",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB5ODRRUUlqVllfN1BPM0VWRkY1U2NZb3BWRWYteW9NbTR2dUlRWHZpTFkyNmhvRUlyWFh0blhHbVo5YTltRXJ2eU9aM3VadnVVWTdFREtzT0h2eElzdEdrYTZNR1c3UQ?oc=5",
+      "source": "디일렉",
       "published": "2026.11.20",
       "category": "MRO·방산",
       "why": "HJ의 신성장 사업과 방산·정비 역량 확장을 이해하는 데 직접 연결돼.",
